@@ -1,0 +1,81 @@
+body {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+h2{
+    color:white;
+    position: relative;
+}
+
+.box{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 420px){
+    .box{
+        background-color: grey;
+    }
+    h2::before{
+        content: "CINZA";
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 421px){
+    .box{
+        background-color: orange;
+    }
+    h2::before{
+        content :"LARANJA";
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px){
+        .box{
+            background-color: pink;
+        }
+        h2::before{
+            content: "ROSA";
+        }
+}
+
+@media only screen and (max-width: 1080px) and (min-width: 1025px){
+    .box{
+        background-color: red;
+    }
+    h2::before{
+        content: "VERMELHO";
+    }
+}
+
+@media only screen and (max-width: 1366px) and (min-width: 1081px){
+    .box{
+        background-color: purple;
+    }
+    h2::before{
+        content: "ROXO";
+    }
+}
+
+@media only screen and (max-width: 1920px) and (min-width: 1367px){
+    .box{
+        background-color: yellow;
+    }
+    h2::before{
+        content: "AMARELO";
+    }
+}
+
+@media only screen and (min-width: 1921px){
+    .box{
+        background-color: green;
+    }
+    h2::before{
+        content: "VERDE";
+    }
+}
