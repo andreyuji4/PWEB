@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Retangulo(x, y){
+           
+                this.x = x;
+                this.y = y;
+                this.calcularArea = function(){
+                    return this.x * this.y;
+                }        
+        }
+        let base = parseFloat(prompt("Digite o valor da base: "));
+        let altura = parseFloat(prompt("Digite o valor da altura: "));
+        let ret = new Retangulo(base, altura);
+ 
+        alert("A área do retângulo é: " + ret.calcularArea());
+
+        class Conta {
+            constructor (nome, correntista, banco, numeroConta, saldo){
+                this._nome = nome;
+                this._correntista = correntista;
+                this._banco = banco;
+                this._numeroConta = numeroConta;
+                this._saldo = saldo;
+            }
+            get nome(){
+                return this._nome;
+            }
+            set nome(valor) {
+                this._nome = valor
+            }
+
+            get correntista(){
+                return this._correntista;
+            }
+            set correntista(valor){
+                this._correntista = valor;
+            }
+
+            get banco(){
+                return this._banco;
+            }
+            set banco(valor){
+                this._banco = valor;
+            }
+
+            get numeroConta(){
+                return this._numeroConta;
+            }
+            set numeroConta(valor){
+                this._numeroConta = valor;
+            }
+
+            get saldo(){
+                return this._saldo;
+            }
+            set saldo(valor){
+                this._saldo = valor;
+            }
+
+            mostrarDados(){
+            return `Nome: ${this._nome}
+            Correntista: ${this._correntista}
+            Banco: ${this._banco}
+            Número da Conta: ${this._numeroConta}
+            Saldo: R$ ${this._saldo.toFixed(2)}`;
+            }
+        }
+
+        class Corrente extends Conta {
+            constructor(nome, correntista, banco, numeroConta, saldo, saldoEspecial){
+                super(nome, correntista, banco, numeroConta, saldo);
+                this._saldoEspecial = saldoEspecial;
+            }
+
+            get saldoEspecial() {
+                return this._saldoEspecial;
+            }
+            set saldoEspecial(valor){
+                this._saldoEspecial = valor;
+            }
+        
+            mostrarDados(){
+                return super.mostrarDados() + `\nSaldo Especial: R$ ${this._saldoEspecial.toFixed(2)}`;
+            }
+        }
+
+        class Poupanca extends Conta {
+            constructor(nome, correntista, banco, numeroConta, saldo, juros, dataVencimento){
+                super(nome, correntista, banco, numeroConta, saldo);
+                this._juros = juros;
+                this._dataVencimento = dataVencimento;
+            }
+
+            get juros(){
+                return this._juros;
+            }
+            set juros(valor){
+                this._juros = valor;
+            }
+
+            get dataVencimento(){
+                return this._dataVencimento;
+            }
+            set dataVencimento(valor){
+                this._dataVencimento = valor;
+            }
+
+            mostrarDados(){
+                return super.mostrarDados() + `\nJuros: ${this._juros}%\nData de Vencimento: ${this._dataVencimento}`;
+            }
+        }
+
+        alert("=== CONTA CORRENTE ===");
+        const nomeC = prompt("Nome:");
+        const correntistaC = prompt("Correntista:");
+        const bancoC = prompt("Banco:");
+        const numeroC = prompt("Número da Conta:");
+        const saldoC = parseFloat(prompt("Saldo:"));
+        const saldoEsp = parseFloat(prompt("Saldo Especial:"));
+        const contaCorrente = new Corrente(nomeC, correntistaC, bancoC, numeroC, saldoC, saldoEsp);
+
+        alert("=== CONTA POUPANÇA ===");
+        const nomeP = prompt("Nome:");
+        const correntistaP = prompt("Correntista:");
+        const bancoP = prompt("Banco:");
+        const numeroP = prompt("Número da Conta:");
+        const saldoP = parseFloat(prompt("Saldo:"));
+        const juros = parseFloat(prompt("Juros (%):"));
+        const dataVenc = prompt("Data de Vencimento (dd/mm/aaaa):");
+        const contaPoupanca = new Poupanca(nomeP, correntistaP, bancoP, numeroP, saldoP, juros, dataVenc);
+
+        alert("CONTA CORRENTE\n" + contaCorrente.mostrarDados());
+        alert("CONTA POUPANÇA\n" + contaPoupanca.mostrarDados());
+    </script>
+</body>
+</html>
